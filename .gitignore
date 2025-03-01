@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+#enivroment variables need to be ignored
+.env 
+.env.*
