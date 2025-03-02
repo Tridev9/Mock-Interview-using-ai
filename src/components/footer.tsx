@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"; // Import Lucide icons
 import { Link } from "react-router-dom";
 import { Container } from "@/components/container";
@@ -59,13 +58,13 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Second Column: About Us */}
+          {/* Second Column: About Me */}
           <div>
-            <h3 className="font-bold text-lg mb-4">About Us</h3>
+            <h3 className="font-bold text-lg mb-4">About Me</h3>
             <p>
-              We are committed to helping you unlock your full potential with
-              AI-powered tools. Our platform offers a wide range of resources to
-              improve your interview skills and chances of success.
+              Hi, I'm a 4th-year CSE (IoT & CS incl BCT) student at{" "}
+              <strong>PSCMR College of Engineering and Technology</strong>. I'm passionate about
+              building innovative solutions and helping others succeed in their careers.
             </p>
           </div>
 
@@ -73,22 +72,18 @@ export const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Services</h3>
             <ul>
-              <FooterLink to="/services/interview-prep">
-                Interview Preparation
-              </FooterLink>
-              <FooterLink to="/services/career-coaching">
-                Career Coaching
-              </FooterLink>
-              <FooterLink to="/services/resume-building">
-                Resume Building
-              </FooterLink>
+              <FooterLink to="/generate">AI Mock Interviews</FooterLink>
+              <FooterLink to="/about">Interview Preparation</FooterLink>
+              <FooterLink to="/contact">Career Guidance</FooterLink>
             </ul>
           </div>
 
-          {/* Fourth Column: Address and Social Media */}
+          {/* Fourth Column: Contact Details and Social Media */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact Us</h3>
-            <p className="mb-4">123 AI Street, Tech City, 12345</p>
+            <h3 className="font-bold text-lg mb-4">Contact Me</h3>
+            <p className="mb-2">📞 +91 99999 99999</p>
+            <p className="mb-2">📧 triddev123@gmail.com</p>
+            <p className="mb-4">🏫 PSCMR College of Engineering and Technology</p>
             <div className="flex gap-4">
               <SocialLink
                 href="https://facebook.com"

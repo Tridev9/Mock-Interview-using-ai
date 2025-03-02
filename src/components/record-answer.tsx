@@ -69,7 +69,7 @@ export const RecordAnswer = ({
 
       if (userAnswer?.length < 10) {
         toast.error("Error", {
-          description: "Your answer should be more than 30 characters",
+          description: "Your answer should be more than 20 characters",
         });
 
         return;

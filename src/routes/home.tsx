@@ -46,9 +46,9 @@ const Homepage = () => {
         {/* image section */}
         <div className="w-full mt-4 rounded-xl bg-gray-100 h-[420px] drop-shadow-md overflow-hidden relative">
           <img
-            src="/assets/img/hero.jpg"
+            src="/assets/img/hero1.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
           />
 
           <div className="absolute top-4 left-4 px-4 py-2 rounded-md bg-white/40 backdrop-blur-md">
@@ -58,13 +58,14 @@ const Homepage = () => {
           <div className="hidden md:block absolute w-80 bottom-4 right-4 px-4 py-2 rounded-md bg-white/60 backdrop-blur-md">
             <h2 className="text-neutral-800 font-semibold">Developer</h2>
             <p className="text-sm text-neutral-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              distinctio natus, quos voluptatibus magni sapiente.
+            Designed to simulate a real interview environment, helping you practice and improve your communication skills, technical knowledge, and confidence.
             </p>
 
-            <Button className="mt-3">
-              Generate <Sparkles />
-            </Button>
+            <Link to="/generate">
+              <Button className="mt-3">
+                Generate <Sparkles />
+              </Button>
+            </Link>
           </div>
         </div>
       </Container>

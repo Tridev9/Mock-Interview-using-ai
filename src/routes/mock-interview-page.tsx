@@ -9,13 +9,23 @@ import { CustomBreadCrumb } from "@/components/custom-bread-crumb";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Lightbulb } from "lucide-react";
 import { QuestionSection } from "@/components/question-form";
+import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"; // Assuming you're using shadcn/ui or similar
 
 export const MockInterviewPage = () => {
   const { interviewId } = useParams<{ interviewId: string }>();
   const [interview, setInterview] = useState<Interview | null>(null);
-
   const [isLoading, setIsLoading] = useState(false);
-
+  const [isSubmitDialogOpen, setIsSubmitDialogOpen] = useState(false); // State for the submit confirmation dialog
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,6 +50,15 @@ export const MockInterviewPage = () => {
 
     fetchInterview();
   }, [interviewId, navigate]);
+
+  const handleSubmitInterview = () => {
+    setIsSubmitDialogOpen(true); // Open the confirmation dialog
+  };
+
+  const handleConfirmSubmit = () => {
+    setIsSubmitDialogOpen(false); // Close the dialog
+    navigate("/generate", { replace: true }); // Navigate to the generate
+  };
 
   if (isLoading) {
     return <LoaderPage className="w-full h-[70vh]" />;
@@ -92,6 +111,30 @@ export const MockInterviewPage = () => {
           <QuestionSection questions={interview?.questions} />
         </div>
       )}
+
+      {/* Submit Button */}
+      <div className="w-full flex justify-end mt-8">
+        <Button onClick={handleSubmitInterview}>Submit Interview</Button>
+      </div>
+
+      {/* Submit Confirmation Dialog */}
+      <AlertDialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Do you want to submit the interview? Once submitted, you will be
+              redirected to the dashboard.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirmSubmit}>
+              Submit
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
